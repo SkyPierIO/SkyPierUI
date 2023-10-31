@@ -62,24 +62,6 @@ export const ModalSteps = forwardRef((props, ref) => {
             listStyleType: "auto",
           }}
         >
-          <li>
-            Please download and install the Kubo daemon corresponding to your Operating System{" "}
-            <a target="_blank" href="https://dist.ipfs.tech/#kubo">
-              Kubo
-            </a>
-          </li>
-          <li>
-            Please download and install latest release of the plugin corresponding to your Operating System{" "}
-            <a target="_blank" href="https://github.com/dProxSocks/kubo-socks/releases">
-              Kubo-socks
-            </a>
-          </li>
-          <li>
-            Please run the following commands <code>ipfs daemon</code> and <code>kubo-socks</code>
-          </li>
-          {/* <li>
-            run <code>ipfs config --json Experimental.Libp2pStreamMounting true</code>
-          </li> */}
           <li>Please confirm your IPFS node and the plug-in are running.</li>
         </ol>
         <div className="modal-action">
