@@ -63,7 +63,7 @@ export const Header = () => {
           <li>
             <NavLink href="/example-ui">
               <GlobeEuropeAfricaIcon className="h-4 w-4" />
-              Client
+              Peers
             </NavLink>
           </li>
           {/* <li>
