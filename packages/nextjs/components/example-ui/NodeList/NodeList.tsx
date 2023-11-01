@@ -82,21 +82,28 @@ export const NodeList = () => {
         .map((node: any, index: number) => (
           <div className="card bg-base-100 shadow-xl m-2" key={index}>
             <div className="card-body">
-              <h3 className="card-title text-base">{node.nodeId}</h3>
-              <div className="card-actions justify-between">
-                <div>
-                  {nodesStatus[index] ? (
-                    <div className="badge badge-primary">Enabled</div>
-                  ) : (
-                    <div className="badge badge-neutral">Disabled</div>
-                  )}
+              <div className="flex justify-between">
+                <div className="flex align-center">
+                  <img className="w-12 h-12 mr-4" src={"https://api.dicebear.com/7.x/identicon/svg?size=4&radius=20&backgroundColor=b6e3f4&seed="+ node.nodeId} alt="Peer icon"/>
+                  <div>
+                    <h3 style={{wordBreak: "break-word", marginRight:5}} className="text-gray-900 leading-none">
+                      Peer <code className="text-[#0975f6]">{node.nodeId}</code>
+                    </h3>
+                    <div>
+                      {nodesStatus[index] ? (
+                        <div className="badge badge-primary">Enabled</div>
+                      ) : (
+                        <div className="badge badge-neutral">Disabled</div>
+                      )}
+                    </div>
+                  </div>
                 </div>
-                <div>
+              <div className="card-actions justify-right">
                   <Button onClick={() => join(node.nodeId)} disabled={!nodesStatus[index]}>
                     Join
                   </Button>
-                </div>
               </div>
+            </div>
             </div>
           </div>
         ))}
