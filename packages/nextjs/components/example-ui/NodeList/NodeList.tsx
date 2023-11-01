@@ -1,4 +1,4 @@
-import { RefObject, useRef, useState } from "react";
+import { RefObject, useEffect, useRef, useState } from "react";
 import { JoinSteps } from "./JoinSteps";
 import { gql, useQuery } from "@apollo/client";
 import axios from "axios";
@@ -7,6 +7,7 @@ import { notification } from "~~/utils/scaffold-eth";
 
 export const NodeList = () => {
   const dialogRef = useRef<RefObject<HTMLDivElement> | undefined>();
+  const [nodesStatus, setNodesStatus] = useState<any>({});
   const [vpnData, setVpnData] = useState<any>({});
   const NODES_GRAPHQL = `
   {
@@ -19,6 +20,37 @@ export const NodeList = () => {
 
   const NODES_GQL = gql(NODES_GRAPHQL);
   const nodesData = useQuery(NODES_GQL, { pollInterval: 1000 });
+
+  useEffect(() => {
+    if (nodesData.data) {
+      const uniqueNodes = nodesData.data.registrations.filter(
+        (node: any, index: any, self: any) =>
+          node.nodeId && node.nodeId.length > 10 && index === self.findIndex(item => item.nodeId === node.nodeId),
+      );
+      // Make requests for each item to this endpoint http://localhost:8081/ping/{nodeId}
+      // Function to make a request for an item
+      const fetchItem = async itemId => {
+        try {
+          const response = await axios.get(`http://localhost:8081/ping/${itemId}`);
+          return response.data;
+        } catch (error) {
+          console.error(`Error fetching item ${itemId}: ${error}`);
+          return null;
+        }
+      };
+
+      // Use Promise.all to make multiple requests in parallel
+      const requests = uniqueNodes.map(item => fetchItem(item.nodeId));
+
+      Promise.all(requests)
+        .then(responses => {
+          setNodesStatus(responses);
+        })
+        .catch(error => {
+          console.error("Error making requests:", error);
+        });
+    }
+  }, [nodesData.data]);
 
   const join = async (nodeId: string) => {
     try {
@@ -52,7 +84,18 @@ export const NodeList = () => {
             <div className="card-body">
               <h3 className="card-title text-base">{node.nodeId}</h3>
               <div className="card-actions justify-between">
-                <Button onClick={() => join(node.nodeId)}>Join</Button>
+                <div>
+                  {nodesStatus[index] ? (
+                    <div className="badge badge-primary">Enabled</div>
+                  ) : (
+                    <div className="badge badge-neutral">Disabled</div>
+                  )}
+                </div>
+                <div>
+                  <Button onClick={() => join(node.nodeId)} disabled={!nodesStatus[index]}>
+                    Join
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
