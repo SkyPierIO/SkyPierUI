@@ -1,6 +1,7 @@
 import React, { useCallback, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { CurrentIP } from "~~/components/example-ui/GeoIP/CurrentIP";;
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { useAccount } from "wagmi";
@@ -113,6 +114,7 @@ export const Header = () => {
         <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-2">{navLinks()}</ul>
       </div>
       <div className="navbar-end flex-grow mr-4">
+        <CurrentIP />
         <RainbowKitCustomConnectButton />
         <FaucetButton />
       </div>
