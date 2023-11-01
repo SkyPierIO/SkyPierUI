@@ -27,11 +27,11 @@ export const NodeList = () => {
         (node: any, index: any, self: any) =>
           node.nodeId && node.nodeId.length > 10 && index === self.findIndex(item => item.nodeId === node.nodeId),
       );
-      // Make requests for each item to this endpoint http://localhost:8081/ping/{nodeId}
+      // Make requests for each item to this endpoint http://localhost:8081/api/v0/ping/{nodeId}
       // Function to make a request for an item
       const fetchItem = async itemId => {
         try {
-          const response = await axios.get(`http://localhost:8081/ping/${itemId}`);
+          const response = await axios.get(`http://localhost:8081/api/v0/ping/${itemId}`);
           return response.data;
         } catch (error) {
           console.error(`Error fetching item ${itemId}: ${error}`);
