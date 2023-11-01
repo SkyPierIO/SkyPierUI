@@ -5,8 +5,8 @@ import { MapPinIcon } from "@heroicons/react/24/outline";
 
 
 export const CurrentIP = () => {
-  const [currentIP, setCurrentIP] = useState<string>("Where am I?");
-  const [country, setCountry] = useState<string>("Earth");
+  const [currentIP, setCurrentIP] = useState<string>("");
+  const [country, setCountry] = useState<string>("");
 
   const IpAddr = async () => {
     try {
@@ -32,8 +32,6 @@ export const CurrentIP = () => {
       }
     } catch (error) {
       console.error(error);
-      notification.error("Error.");
-
     }
   };
   
@@ -44,6 +42,7 @@ export const CurrentIP = () => {
     return () => clearInterval(interval);
   }, []);
 
+  IpAddr();
   return (
     <div onClick={() => IpAddr()} className="flex flex-col items-center mr-1">
       <button className="btn btn-sm btn-ghost flex flex-col font-normal items-center hover:bg-transparent min-h-0 h-auto">
