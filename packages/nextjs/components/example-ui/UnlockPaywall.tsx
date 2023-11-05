@@ -97,7 +97,9 @@ const Checkout = ({ network }: { network: number }) => {
 
   return (
     <section>
-      <p className="mb-4">You currently don't have a membership... </p>
+      <h3 className="font-bold text-xl">Before accessing our service</h3>
+      <p className="mb-4">You currently don't have a membership! </p>
+      <p className="mb-4">To be able to connect to a peer, you need to purchase a Skypier subscription.</p>
       <Button
         onClick={() => checkout()}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"

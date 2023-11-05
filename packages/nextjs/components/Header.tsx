@@ -58,7 +58,7 @@ export const Header = () => {
                 <ServerStackIcon className="h-4 w-4" />
                 Host
               </NavLink>
-            </li>
+            </li> 
           )}
           <li>
             <NavLink href="/example-ui">
@@ -104,7 +104,7 @@ export const Header = () => {
         </div>
         <Link href="/" passHref className="hidden lg:flex items-center gap-2 ml-4 mr-6 shrink-0">
           <div className="flex relative w-10 h-10">
-            <Image alt="SE2 logo" className="cursor-pointer" fill src="https://avatars.githubusercontent.com/u/145208723?s=400&u=6eae4ca3fa1df85d277958c826ed152e8ed15064&v=4" />
+            <Image alt="Skypier Logo" className="cursor-pointer" fill src="./skypier_logo_concept.png" />
           </div>
           <div className="flex flex-col">
             <span className="font-bold leading-tight">Skypiea</span>

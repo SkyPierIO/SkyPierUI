@@ -15,7 +15,7 @@ const Home: NextPage = () => {
   }, []);
 
   return (
-    <div className="grid lg:grid-cols-2 flex-grow" data-theme="exampleUi">
+    <div className="grid lg:grid-cols-2 flex-grow">
       <ModalSteps ref={dialogRef} />
       {!hostInfo && (
         <div className="flex flex-col mt-6 px-7 py-8 bg-base-200 opacity-80 rounded-2xl shadow-lg border-2 border-primary">
