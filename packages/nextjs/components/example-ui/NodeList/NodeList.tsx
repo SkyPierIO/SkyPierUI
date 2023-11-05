@@ -80,7 +80,7 @@ export const NodeList = () => {
             node.nodeId && node.nodeId.length > 43 && index === self.findIndex(item => item.nodeId === node.nodeId),
         )
         .map((node: any, index: number) => (
-          <div className="card bg-base-100 shadow-xl m-2" key={index}>
+          <div className="card bg-base-100 shadow-md m-2" key={index}>
             <div className="card-body">
               <div className="flex justify-between">
                 <div className="flex align-center">

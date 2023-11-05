@@ -25,16 +25,17 @@ export const withInitialData = WrappedComponent => {
 
     if (!address) {
       return (
-        <div className="hero min-h-screen bg-base-200" style={{ backgroundColor: "#f2f2f2" }}>
+        <div className="hero bg-base-200" style={{ backgroundColor: "#f5f9ffff" }}>
           <div className="hero-content text-center p-4">
             <div className="max-w-md" style={{ margin: "auto" }}>
-              <h1 className="text-5xl font-bold">Skypea</h1>
+              <img src="./skypier_logo_baseline.png" alt="logo Skypier" />
+              {/* <h1 className="text-5xl font-bold">Skypier</h1> */}
               <p className="py-6">Please connect your wallet to be able to use the app.</p>
               <RainbowKitCustomConnectButton />
             </div>
           </div>
         </div>
-      );
+      );F
     }
 
     return <WrappedComponent {...props} />;
