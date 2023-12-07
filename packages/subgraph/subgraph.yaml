@@ -9,7 +9,7 @@ dataSources:
     network: goerli
     source:
       abi: YourContract
-      address: "0x8896c31C3e8195d81e6755dAF927A63300956Ed8"
+      address: "0xaAE393C08584d6d105bA93fE2Efb4f5c7634a7Ba"
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -20,6 +20,6 @@ dataSources:
         - name: YourContract
           file: ./abis/localhost_YourContract.json
       eventHandlers:
-        - event: HostRegistered(indexed address,string,bool)
+        - event: HostRegistered(uint256,string)
           handler: handleRegistration
       file: ./src/mapping.ts

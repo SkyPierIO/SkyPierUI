@@ -52,17 +52,17 @@ export class Registration extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get address(): Bytes {
-    let value = this.get("address");
+  get tokenId(): BigInt {
+    let value = this.get("tokenId");
     if (!value || value.kind == ValueKind.NULL) {
       throw new Error("Cannot return null for a required field.");
     } else {
-      return value.toBytes();
+      return value.toBigInt();
     }
   }
 
-  set address(value: Bytes) {
-    this.set("address", Value.fromBytes(value));
+  set tokenId(value: BigInt) {
+    this.set("tokenId", Value.fromBigInt(value));
   }
 
   get nodeId(): string {

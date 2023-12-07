@@ -19,9 +19,9 @@ const ExampleUI: NextPage = () => {
       </MetaHeader>
       <div>
         {address && (
-          <TokenGate>
-            <NodeList />
-          </TokenGate>
+          // <TokenGate>
+          <NodeList />
+          // </TokenGate>
         )}
         {/* <ContractInteraction />
         <ContractData /> */}

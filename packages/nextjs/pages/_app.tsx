@@ -26,7 +26,7 @@ const ScaffoldEthApp = ({ Component, pageProps }: AppProps) => {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
   const { isDarkMode } = useDarkMode();
 
-  const subgraphUri = "https://api.studio.thegraph.com/query/53666/eth-nyc/v0.0.1";
+  const subgraphUri = "https://api.studio.thegraph.com/query/53666/skypiea/version/latest";
   const apolloClient = new ApolloClient({
     uri: subgraphUri,
     cache: new InMemoryCache(),

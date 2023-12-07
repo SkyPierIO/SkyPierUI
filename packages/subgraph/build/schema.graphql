@@ -1,8 +1,6 @@
 type Registration @entity {
   id: ID!
-  address: Bytes!
+  tokenId: BigInt!
   nodeId: String!
   createdAt: BigInt!
 }
-
-
