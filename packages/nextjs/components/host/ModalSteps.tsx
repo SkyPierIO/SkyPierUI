@@ -63,8 +63,8 @@ export const ModalSteps = forwardRef((props, ref) => {
   }, []);
 
   const beAHost = useCallback(async () => {
-    // const nodeId = await validateNodeId();
-    const nodeId = "1";
+    const nodeId = await validateNodeId();
+    // const nodeId = "1";
     setNodeId(nodeId);
     if (nodeId) {
       handleIpfsUpload(nodeId);
