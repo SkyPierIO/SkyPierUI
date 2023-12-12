@@ -12,7 +12,6 @@ export const NodeList = () => {
   const NODES_GRAPHQL = `
   {
     registrations(filter: { active: true }, orderBy: createdAt) {
-      address
     	nodeId
     }
   }
