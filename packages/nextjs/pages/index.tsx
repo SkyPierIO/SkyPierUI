@@ -1,4 +1,4 @@
-import { useCallback, useRef } from "react";
+import { RefObject, useCallback, useRef } from "react";
 import Link from "next/link";
 import type { NextPage } from "next";
 import { useSelector } from "react-redux";

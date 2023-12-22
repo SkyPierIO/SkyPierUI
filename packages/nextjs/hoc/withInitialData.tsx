@@ -9,19 +9,22 @@ export const withInitialData = WrappedComponent => {
   const WithInitialData = props => {
     const { address } = useAccount();
 
-    const { data: hostData } = useScaffoldContractRead({
+    // Check if the user is a host
+    const { data: myTotalBalance } = useScaffoldContractRead({
       contractName: "YourContract",
-      functionName: "getHost",
+      functionName: "balanceOf",
       args: [address],
+      watch: true,
+      cacheOnBlock: true,
     });
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-      if (hostData) {
-        dispatch(setHost(hostData.nodeId));
+      if (myTotalBalance) {
+        dispatch(setHost(parseInt(myTotalBalance.toString())));
       }
-    }, [dispatch, hostData]);
+    }, [dispatch, myTotalBalance]);
 
     if (!address) {
       return (
@@ -35,7 +38,7 @@ export const withInitialData = WrappedComponent => {
             </div>
           </div>
         </div>
-      );F
+      );
     }
 
     return <WrappedComponent {...props} />;

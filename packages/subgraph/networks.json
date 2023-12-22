@@ -1,12 +1,17 @@
 {
   "localhost": {
     "YourContract": {
-      "address": "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6"
+      "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3"
     }
   },
   "goerli": {
     "YourContract": {
-      "address": "0x4540a8E4f4Ce272e24c6Af5f6b51008b7C8beAE8"
+      "address": "0x8896c31C3e8195d81e6755dAF927A63300956Ed8"
+    }
+  },
+  "calibration": {
+    "YourContract": {
+      "address": "0xd7FB89454788758221bb53B855A0D359F36da93E"
     }
   }
 }

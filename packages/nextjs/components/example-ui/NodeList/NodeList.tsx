@@ -12,7 +12,6 @@ export const NodeList = () => {
   const NODES_GRAPHQL = `
   {
     registrations(filter: { active: true }, orderBy: createdAt) {
-      address
     	nodeId
     }
   }
@@ -84,9 +83,16 @@ export const NodeList = () => {
             <div className="card-body">
               <div className="flex justify-between">
                 <div className="flex align-center">
-                  <img className="w-12 h-12 mr-4" src={"https://api.dicebear.com/7.x/identicon/svg?size=4&radius=20&backgroundColor=b6e3f4&seed="+ node.nodeId} alt="Peer icon"/>
+                  <img
+                    className="w-12 h-12 mr-4"
+                    src={
+                      "https://api.dicebear.com/7.x/identicon/svg?size=4&radius=20&backgroundColor=b6e3f4&seed=" +
+                      node.nodeId
+                    }
+                    alt="Peer icon"
+                  />
                   <div>
-                    <h3 style={{wordBreak: "break-word", marginRight:5}} className="text-gray-900 leading-none">
+                    <h3 style={{ wordBreak: "break-word", marginRight: 5 }} className="text-gray-900 leading-none">
                       Peer <code className="text-[#0975f6]">{node.nodeId}</code>
                     </h3>
                     <div>
@@ -98,12 +104,12 @@ export const NodeList = () => {
                     </div>
                   </div>
                 </div>
-              <div className="card-actions justify-right">
+                <div className="card-actions justify-right">
                   <Button onClick={() => join(node.nodeId)} disabled={!nodesStatus[index]}>
                     Join
                   </Button>
+                </div>
               </div>
-            </div>
             </div>
           </div>
         ))}
